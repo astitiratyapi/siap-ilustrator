@@ -60,7 +60,7 @@
   .main{flex:1;min-width:0;display:flex;flex-direction:column}
   .content{flex:1;padding:24px;overflow-y:auto}
 
-  .page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
   .page-title{font-size:18px;font-weight:700;color:var(--text-primary)}
   .page-bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-tertiary);margin-bottom:4px}
   .page-bc .cur{color:var(--text-secondary)}
@@ -464,17 +464,11 @@
       <!-- daftar soal toolbar -->
       <div class="soal-toolbar">
         <div class="st-title">Daftar Soal</div>
-        <div class="head-actions">
-          <button class="btn btn-secondary btn-sm"><i data-lucide="download"></i>Template .xls</button>
-          <button class="btn btn-secondary btn-sm"><i data-lucide="upload"></i>Import Data</button>
-          <button class="btn btn-primary btn-sm"><i data-lucide="plus"></i>Tambah Soal</button>
-        </div>
       </div>
 
       <div class="action-bar">
         <div class="ab-left">
           <div class="show-sel"><span>Show</span><div class="select"><select><option>10</option><option>25</option><option>50</option></select><i data-lucide="chevron-down"></i></div></div>
-          <button class="btn btn-secondary btn-sm" disabled><i data-lucide="trash-2"></i>Delete Selected Row</button>
         </div>
         <div class="ab-right">
           <button class="btn btn-filter btn-sm" onclick="toggleFilter()"><i data-lucide="filter"></i>Filter</button>
@@ -774,7 +768,7 @@
   /* ---------- selection ---------- */
   function toggleAll(cb){ document.querySelectorAll('.row-check').forEach(c=>c.checked=cb.checked); updateSelection(); }
   function updateSelection(){ const checks=[...document.querySelectorAll('.row-check')]; const n=checks.filter(c=>c.checked).length;
-    document.querySelector('.ab-left .btn-secondary').disabled=n===0;
+    const delBtn=document.querySelector('.ab-left .btn-secondary'); if(delBtn) delBtn.disabled=n===0;
     const all=document.getElementById('check-all'); all.checked=n>0&&n===checks.length; all.indeterminate=n>0&&n<checks.length; }
   function clearSelection(){ document.querySelectorAll('.row-check').forEach(c=>c.checked=false);
     const all=document.getElementById('check-all'); if(all){all.checked=false;all.indeterminate=false;} }
