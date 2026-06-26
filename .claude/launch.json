@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "siap-ilustrator",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "-l", "4173", "/Users/badrdesigner/siap-ilustrator"],
+      "port": 4173
+    }
+  ]
+}
